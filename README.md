@@ -1,5 +1,7 @@
 Name: Gabriel Cabrera
+
 Date Last Modified: 2/4/2019
+
 Total Hours: 11 hours
 
 Flix is an app that allows users to browse movies from the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
