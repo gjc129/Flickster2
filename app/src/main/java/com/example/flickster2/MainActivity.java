@@ -2,8 +2,11 @@ package com.example.flickster2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.example.flickster2.adapters.MoviesAdapter;
 import com.example.flickster2.models.Movie;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -12,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
@@ -26,13 +30,19 @@ public class MainActivity extends AppCompatActivity {
     //Define a model class to use as the data source - Done
     //Add a RecyclerView to your activity to display the items - DONE
     //Create a custom row layout XML file to visualize the item - DONE
-    //Create a RecyclerView.Adapter and ViewHolder to render the item -
+    //Create a RecyclerView.Adapter and ViewHolder to render the item - DONE
     //Bind the adapter to the data source to populate the RecyclerView -
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        RecyclerView rvMovies = findViewById(R.id.rvMovies);
+        movies = new ArrayList<>();
+        final MoviesAdapter adapter = new MoviesAdapter(this, movies);
+        rvMovies.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rvMovies.setAdapter(adapter);
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(MOVIE_URL, new JsonHttpResponseHandler()
@@ -41,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     JSONArray movieJsonArray = response.getJSONArray("results");
-                    movies = Movie.fromJsonArray(movieJsonArray);
+                    movies.addAll(Movie.fromJsonArray(movieJsonArray));
+                    adapter.notifyDataSetChanged();
                     Log.d("smile", movies.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
