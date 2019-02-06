@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#000000" >
+    android:background="#000000">
 
     <ImageView
         android:id="@+id/ivPoster"
@@ -18,8 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/ivPoster"
-        android:textSize="24sp"
         android:textColor="#FFFFFF"
+        android:textSize="24sp"
         tools:text="Glass" />
 
     <TextView
