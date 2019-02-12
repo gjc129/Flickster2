@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="#000000">
 
     <ImageView
         android:id="@+id/ivPoster"
@@ -18,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/ivPoster"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         tools:text="Glass" />
 
@@ -27,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvTitle"
         android:layout_toEndOf="@+id/ivPoster"
+        android:textColor="#FFFFFF"
         tools:text="In a series of escalating encounters, security guard David Dunn uses his supernatural abilities to track Kevin Wendell Crumb, a disturbed man who has twenty-four personalities. Meanwhile, the shadowy presence of Elijah Price emerges as an orchestrator who holds secrets critical to both men." />
 
 </RelativeLayout>
