@@ -23,7 +23,7 @@ Total Hours: 21 hours
 ### App Walkthough GIF
 
 
-<img src="YOUR_GIF_URL_HERE" width=250><br>
+<img src="https://github.com/gjc129/Flickster2/blob/master/flickster2part2walkthrough.gif" width=250><br>
 
 ### Notes
 
